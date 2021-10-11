@@ -1,21 +1,54 @@
-title: uBuild Design Blocks
-author: Forestry.io
-email: support@forestry.io
-description: >-
-  ubuild-jekyll is a Jekyll theme desgined to work with Forestry's Blocks feature.
-  This theme provides a set of page-level components and a pre-configured Forestry Blocks UI
-  that will empower content editors to construct their own webpages.
-baseurl: "/ubuild-jekyll" # the subpath of your site, e.g. /blog
-url: "" # your site's origin, e.g. https://forestry.io
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: AO UX
+email: m@kevan.tv
+description: >
+  AO UX team
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
 
 # Build settings
-defaults:
-  - scope:
-      path: "" # an empty string here means all files in the project
-    values:
-      layout: "default" # this ensures all content renders with layouts/default.html
+markdown: kramdown
 
-plugins:
+sass:
+  style: compressed
+  
+gems:
   - jekyll-feed
-  - jekyll-menus
+  - jekyll-seo-tag
 
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+collections:
+  articles:
+    output: true
+    permalink: /articles/:path/
+  categories:
+    output: true
+    permalink: /:path/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "articles"
+    values: 
+      layout: "post"
+      description: ""
+      tags: []
+  -
+    scope:
+      path: ""
+      type: "categories"
+    values: 
+      layout: "category"
+      description: ""
+      tags: []
